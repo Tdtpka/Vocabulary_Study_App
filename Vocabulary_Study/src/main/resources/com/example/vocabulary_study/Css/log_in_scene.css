@@ -1,0 +1,37 @@
+.root{
+    -fx-background-color: derive(brown, 50%);
+}
+.field{
+    -fx-padding: 10px 15px 10px 15px;
+    -fx-font-family: "Comic Sans MS";
+    -fx-background-color: white;
+    -fx-background-radius: 15px 20px 15px 20px;
+    -fx-border-color: brown;
+    -fx-border-radius: 15px 20px 15px 20px;
+    -fx-border-width: 1 ;
+    -fx-border-style: segments(1, 1, 1, 1)  line-cap round ;
+}
+.text{
+    -fx-font-family: "Comic Sans MS";
+    -fx-text-fill: white;
+}
+.large_label{
+    -fx-font-size: 30px;
+}
+.small_label{
+    -fx-font-size: 18px;
+}
+.xs_label{
+    -fx-font-size: 15px;
+}
+.background{
+    -fx-background-color: white;
+    -fx-border-color: derive(brown, 50%);
+    -fx-border-width: 5px;
+    -fx-border-radius: 0px 20px 20px 4px;
+    -fx-background-radius: 0px 25px 25px 0px;
+}
+.button{
+    -fx-background-color: white;
+    -fx-background-radius: 17px;
+}
