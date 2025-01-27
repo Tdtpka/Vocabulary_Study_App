@@ -1,0 +1,33 @@
+.root{
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+}
+.card{
+    -fx-background-color: derive(lightskyblue, 50%);
+    -fx-background-radius: 20px;
+}
+.text_large{
+    -fx-font-size: 30px;
+}
+.text_medium{
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-background-color: derive(navy, 99%);
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 15px 5px 10px;
+}
+.text_small{
+    -fx-font-size: 15px;
+}
+.button{
+    -fx-background-radius: 20px;
+    -fx-background-color: derive(navy, 98%);
+    -fx-text-fill: white;
+}
+.search_box{
+    -fx-border-radius: 20px;
+    -fx-border-color: derive(lightskyblue, 50%);
+}
+.icon{
+    -fx-fill: derive(navy, 90%);
+}

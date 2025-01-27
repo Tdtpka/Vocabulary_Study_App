@@ -3,7 +3,10 @@ module com.example.vocabulary_study {
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
+    requires fontawesomefx;
 
-    opens com.example.vocabulary_study to javafx.fxml;
-    exports com.example.vocabulary_study;
+    exports com.example.vocabulary_study.Controllers;
+    opens com.example.vocabulary_study.Controllers to javafx.fxml;
+    exports com.example.vocabulary_study.Views;
+    opens com.example.vocabulary_study.Views to javafx.fxml;
 }

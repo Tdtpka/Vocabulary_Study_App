@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane prefHeight="747.0" prefWidth="1105.0" styleClass="root" stylesheets="@../Css/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <left>
+        <fx:include source="/com/example/vocabulary_study/Fxml/menu.fxml" />
+    </left>
+    <center>
+        <fx:include source="/com/example/vocabulary_study/Fxml/home.fxml" />
+    </center>
+   <top>
+      <Pane prefHeight="14.0" prefWidth="1288.0" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <Pane prefHeight="718.0" prefWidth="12.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Pane prefHeight="14.0" prefWidth="1288.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

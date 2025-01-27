@@ -35,3 +35,7 @@
     -fx-background-color: white;
     -fx-background-radius: 17px;
 }
+.icon{
+    -fx-size: 10px;
+    -fx-fill: white;
+}

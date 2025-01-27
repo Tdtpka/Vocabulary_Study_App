@@ -1,0 +1,23 @@
+.root{
+    -fx-background-color: derive(lightskyblue, 20%);
+}
+.menu{
+    -fx-background-color: derive(white, 50%);
+    -fx-background-radius: 15px;
+}
+.menu_button{
+    -fx-font-size: 20px;
+    -fx-background-radius: 50px;
+    -fx-background-color: derive(navy, 90%);
+    -fx-padding: 10px 20px;
+}
+.label_welcome{
+    -fx-font-size: 30px;
+    -fx-font-color: derive(navy, 90%);
+}
+.label_report{
+    -fx-font-size: 15px;
+}
+.icon{
+    -fx-fill: white;
+}
