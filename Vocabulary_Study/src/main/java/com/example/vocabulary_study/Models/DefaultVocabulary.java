@@ -1,37 +1,46 @@
 package com.example.vocabulary_study.Models;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class DefaultVocabulary {
-    private int vocabularyID;
-    private String topic;
-    private String word;
-    private String wordType;
-    private String meaning;
+    private final IntegerProperty vocabularyID;
+    private final StringProperty topic;
+    private final StringProperty word;
+    private final StringProperty wordType;
+    private final StringProperty meaning;
 
     public DefaultVocabulary(int vocabID, String topic, String word, String wordType, String meaning){
-        this.vocabularyID = vocabID;
-        this.topic = topic;
-        this.word = word;
-        this.wordType = wordType;
-        this.meaning = meaning;
+        this.vocabularyID = new SimpleIntegerProperty(this, "vocabID", vocabID);
+        this.topic = new SimpleStringProperty(this, "Topic", topic);
+        this.word = new SimpleStringProperty(this, "Word", word);
+        this.wordType = new SimpleStringProperty(this, "Word Type", wordType);
+        this.meaning = new SimpleStringProperty(this, "Meaning", meaning);
     }
 
-    public int getVocabID() {
+
+    public IntegerProperty vocabularyIDProperty() {
         return vocabularyID;
     }
 
-    public String getTopic() {
+
+    public StringProperty topicProperty() {
         return topic;
     }
 
-    public String getWord() {
+
+    public StringProperty wordProperty() {
         return word;
     }
 
-    public String getWordType() {
+    public StringProperty wordTypeProperty() {
         return wordType;
     }
 
-    public String getMeaning() {
+
+    public StringProperty meaningProperty() {
         return meaning;
     }
 }

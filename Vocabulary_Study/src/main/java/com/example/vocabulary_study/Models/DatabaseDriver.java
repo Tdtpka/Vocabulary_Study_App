@@ -33,4 +33,26 @@ public class DatabaseDriver {
             e.printStackTrace();
         }
     }
+    public static ResultSet getVocabularyData(int userID){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = DbConnect.getConnection().createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM vocabulary WHERE user_id = '"+userID+"'");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+    public static ResultSet getDefaultVocabularyData(){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = DbConnect.getConnection().createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM defaultvocabulary");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
 }

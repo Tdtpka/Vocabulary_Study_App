@@ -8,6 +8,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         Model.getInstance().getViewFactory().showSignInWindow();
+
     }
 
     public static void main(String[] args) {
