@@ -15,7 +15,7 @@
             <String fx:value="xs_label" />
          </styleClass>
       </TextField>
-      <Button layoutX="552.0" layoutY="576.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="96.0" styleClass="xs_label" text="Sign Up!" />
+      <Button fx:id="sign_in_btn" layoutX="552.0" layoutY="576.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="96.0" styleClass="xs_label" text="Sign Up!" />
       <Label layoutX="546.0" layoutY="78.0" text="Sign up">
          <styleClass>
             <String fx:value="text" />
