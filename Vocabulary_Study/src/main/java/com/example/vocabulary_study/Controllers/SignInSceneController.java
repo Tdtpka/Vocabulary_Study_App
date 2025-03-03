@@ -1,22 +1,16 @@
 package com.example.vocabulary_study.Controllers;
 
 import com.example.vocabulary_study.Models.Model;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SignInSceneController implements Initializable {
-
-
     public TextField acc_field;
     public Label forgot_pass;
     public Button sign_in_btn;
@@ -29,13 +23,15 @@ public class SignInSceneController implements Initializable {
         sign_up_btn.setOnAction(event->onSignUp());
     }
     private void onSignIn(){
-        Stage stage = (Stage) sign_up_btn.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
+        Stage stage = (Stage) sign_in_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().showAppWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+
     }
     private void onSignUp(){
         Stage stage = (Stage) sign_up_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showSignUpWindow();
     }
+
 }

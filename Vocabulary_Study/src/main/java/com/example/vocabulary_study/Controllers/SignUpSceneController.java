@@ -5,6 +5,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,14 +18,21 @@ public class SignUpSceneController implements Initializable {
     public TextField pass_field;
     public TextField confirm_pass_field;
     public FontAwesomeIcon go_back;
+    public Button sign_in_btn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         go_back.setOnMouseClicked(mouseEvent -> goBack());
+        sign_in_btn.setOnAction(event->signUp());
     }
     private void goBack(){
         Stage stage = (Stage) go_back.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showSignInWindow();
+    }
+    private void signUp(){
+        Stage stage = (Stage) go_back.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showAppWindow();
     }
 }

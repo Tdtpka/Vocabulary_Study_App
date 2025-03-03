@@ -1,17 +1,25 @@
 package com.example.vocabulary_study.Views;
 
+import com.example.vocabulary_study.Controllers.AppController;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ViewFactory {
+    private ObjectProperty<UserMenuOptions> userSelectedMenuItem;
     private AnchorPane home;
     private AnchorPane dictionary;
     private AnchorPane quiz;
     private AnchorPane result;
 
     public ViewFactory(){
+        this.userSelectedMenuItem = new SimpleObjectProperty<>();
+    }
+    public ObjectProperty<UserMenuOptions> getUserSelectedMenuItem(){
+        return userSelectedMenuItem;
     }
     public void showSignInWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vocabulary_study/Fxml/signin.fxml"));
@@ -23,6 +31,8 @@ public class ViewFactory {
     }
     public void showAppWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vocabulary_study/Fxml/app.fxml"));
+        AppController appController = new AppController();
+        loader.setController(appController);
         createStage(loader);
     }
 

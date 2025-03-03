@@ -5,6 +5,7 @@ module com.example.vocabulary_study {
 
     requires org.controlsfx.controls;
     requires fontawesomefx;
+    requires mysql.connector.j;
 
     exports com.example.vocabulary_study.Controllers;
     opens com.example.vocabulary_study.Controllers to javafx.fxml;

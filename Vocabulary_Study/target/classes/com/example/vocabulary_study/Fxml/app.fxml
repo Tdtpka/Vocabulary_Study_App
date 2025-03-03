@@ -5,10 +5,10 @@
 
 <BorderPane prefHeight="747.0" prefWidth="1105.0" styleClass="root" stylesheets="@../Css/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <left>
-        <fx:include source="/com/example/vocabulary_study/Fxml/menu.fxml" />
+        <fx:include source="menu.fxml" />
     </left>
     <center>
-        <fx:include source="/com/example/vocabulary_study/Fxml/home.fxml" />
+        <fx:include source="home.fxml" />
     </center>
    <top>
       <Pane prefHeight="14.0" prefWidth="1288.0" BorderPane.alignment="CENTER" />
