@@ -2,14 +2,11 @@ package com.example.vocabulary_study.Controllers;
 
 import com.example.vocabulary_study.Models.Model;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,7 +29,12 @@ public class SignUpSceneController implements Initializable {
     }
     private void signUp(){
         Stage stage = (Stage) go_back.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showAppWindow();
+        String userName = acc_field.getText();
+        String password = pass_field.getText();
+        Model.getInstance().createUserAccount(userName, password, "", "", "", "", "", "");
+        if(Model.getInstance().getUserLoginSuccessFlag()) {
+            Model.getInstance().getViewFactory().closeStage(stage);
+            Model.getInstance().getViewFactory().showAppWindow();
+        }
     }
 }

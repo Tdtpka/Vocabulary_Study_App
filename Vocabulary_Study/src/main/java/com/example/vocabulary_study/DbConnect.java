@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DbConnect {
     private static final String URL = "jdbc:mysql://localhost:3306/VocabularyApp?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root"; 
-    private static final String PASSWORD = "123456a@"; // Thay tên user với pass SQL của mấy đứa vô
+    private static final String PASSWORD = "lewlew3001"; // Thay tên user với pass SQL của mấy đứa vô
 
     private static Connection connection; 
 

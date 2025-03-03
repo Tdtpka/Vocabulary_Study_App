@@ -1,62 +1,66 @@
 package com.example.vocabulary_study.Models;
 
-import com.mysql.cj.xdevapi.Client;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class User {
-    private int userID;
-    private String userName;
-    private String password;
-    private String questionA;
-    private String questionB;
-    private String questionC;
-    private String answerA;
-    private String answerB;
-    private String answerC;
+    private final IntegerProperty userID;
+    private final StringProperty userName;
+    private final StringProperty password;
+    private final StringProperty questionA;
+    private final StringProperty questionB;
+    private final StringProperty questionC;
+    private final StringProperty answerA;
+    private final StringProperty answerB;
+    private final StringProperty answerC;
 
     public User(int userID, String userName, String password, String questionA, String questionB, String questionC, String answerA, String answerB, String answerC){
-        this.userID = userID;
-        this.userName = userName;
-        this.password = password;
-        this.questionA = questionA;
-        this.questionB = questionB;
-        this.questionC = questionC;
-        this.answerA = answerA;
-        this. answerB = answerB;
-        this.answerC = answerC;
+        this.userID = new SimpleIntegerProperty(this, "User ID", userID);
+        this.userName = new SimpleStringProperty(this, "User Name", userName);
+        this.password = new SimpleStringProperty(this, "Password", password);
+        this.questionA = new SimpleStringProperty(this, "Question A", questionA);
+        this.questionB = new SimpleStringProperty(this, "Question B", questionB);
+        this.questionC = new SimpleStringProperty(this, "Question C", questionC);
+        this.answerA = new SimpleStringProperty(this, "Answer A", answerA);
+        this. answerB = new SimpleStringProperty(this, "Answer B", answerB);
+        this.answerC = new SimpleStringProperty(this, "Answer C", answerC);
     }
-    public int getUserID() {
+
+    public IntegerProperty getUserID() {
         return userID;
     }
 
-    public String getUserName() {
+    public StringProperty getUserName() {
         return userName;
     }
 
-    public String getPassword() {
+    public StringProperty getPassword() {
         return password;
     }
-    public String getQuestionA() {
+
+    public StringProperty getQuestionA() {
         return questionA;
     }
 
-    public String getQuestionB() {
+    public StringProperty getQuestionB() {
         return questionB;
     }
 
-    public String getQuestionC() {
+    public StringProperty getQuestionC() {
         return questionC;
     }
-    public String getAnswerA() {
+
+    public StringProperty getAnswerA() {
         return answerA;
     }
 
-    public String getAnswerB() {
+    public StringProperty getAnswerB() {
         return answerB;
     }
 
-    public String getAnswerC() {
+    public StringProperty getAnswerC() {
         return answerC;
     }
-
-
 }

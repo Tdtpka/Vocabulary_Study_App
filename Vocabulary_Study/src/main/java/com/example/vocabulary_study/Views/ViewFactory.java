@@ -5,15 +5,15 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class ViewFactory {
     private ObjectProperty<UserMenuOptions> userSelectedMenuItem;
-    private AnchorPane home;
-    private AnchorPane dictionary;
-    private AnchorPane quiz;
-    private AnchorPane result;
+    private Pane home;
+    private Pane dictionary;
+    private Pane quiz;
+    private Pane result;
 
     public ViewFactory(){
         this.userSelectedMenuItem = new SimpleObjectProperty<>();
@@ -51,40 +51,40 @@ public class ViewFactory {
     public void closeStage(Stage stage){
         stage.close();
     }
-    public AnchorPane getHomeView(){
+    public Pane getHomeView(){
         if(home==null){
             try{
-                home = new FXMLLoader(getClass().getResource("com/example/vocabulary_study/Fxml/home.fxml")).load();
+                home = new FXMLLoader(getClass().getResource("/com/example/vocabulary_study/Fxml/home.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
         return home;
     }
-    public AnchorPane getDictionaryView(){
+    public Pane getDictionaryView(){
         if(dictionary==null){
             try {
-                dictionary = new FXMLLoader(getClass().getResource("com/example/vocabulary_study/Fxml/dictionary.fxml")).load();
+                dictionary = new FXMLLoader(getClass().getResource("/com/example/vocabulary_study/Fxml/dictionary.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
         return dictionary;
     }
-    public  AnchorPane getQuizView(){
+    public  Pane getQuizView(){
         if (quiz==null){
             try {
-                quiz = new FXMLLoader(getClass().getResource("com/example/vocabulary_study/Fxml/quiz.fxml")).load();
+                quiz = new FXMLLoader(getClass().getResource("/com/example/vocabulary_study/Fxml/quiz.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
         return quiz;
     }
-    public AnchorPane getResultView(){
+    public Pane getResultView(){
         if (result==null){
             try{
-                result = new FXMLLoader(getClass().getResource("com/example/vocabulary_study/Fxml/result.fxml")).load();
+                result = new FXMLLoader(getClass().getResource("/com/example/vocabulary_study/Fxml/result.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }

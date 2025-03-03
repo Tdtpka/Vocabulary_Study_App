@@ -53,19 +53,19 @@
          </styleClass>
       </Label>
       <FontAwesomeIcon fx:id="go_back" fill="WHITE" iconName="ANGLE_LEFT" layoutX="51.0" layoutY="59.0" size="30" />
-      <TextField fx:id="acc_field1" layoutX="670.0" layoutY="216.0" prefHeight="41.0" prefWidth="267.0" promptText="example@gmail.com" stylesheets="@../Css/log_in_scene.css">
+      <TextField layoutX="670.0" layoutY="216.0" prefHeight="41.0" prefWidth="267.0" promptText="example@gmail.com" stylesheets="@../Css/log_in_scene.css">
          <styleClass>
             <String fx:value="field" />
             <String fx:value="xs_label" />
          </styleClass>
       </TextField>
-      <TextField fx:id="acc_field2" layoutX="670.0" layoutY="316.0" prefHeight="41.0" prefWidth="267.0" promptText="example@gmail.com" stylesheets="@../Css/log_in_scene.css">
+      <TextField layoutX="670.0" layoutY="316.0" prefHeight="41.0" prefWidth="267.0" promptText="example@gmail.com" stylesheets="@../Css/log_in_scene.css">
          <styleClass>
             <String fx:value="field" />
             <String fx:value="xs_label" />
          </styleClass>
       </TextField>
-      <TextField fx:id="acc_field3" layoutX="670.0" layoutY="417.0" prefHeight="41.0" prefWidth="267.0" promptText="example@gmail.com" stylesheets="@../Css/log_in_scene.css">
+      <TextField layoutX="670.0" layoutY="417.0" prefHeight="41.0" prefWidth="267.0" promptText="example@gmail.com" stylesheets="@../Css/log_in_scene.css">
          <styleClass>
             <String fx:value="field" />
             <String fx:value="xs_label" />

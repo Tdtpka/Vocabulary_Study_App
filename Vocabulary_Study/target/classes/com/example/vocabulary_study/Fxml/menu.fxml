@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.CubicCurve?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="717.0" prefWidth="233.0" stylesheets="@../Css/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="717.0" prefWidth="233.0" stylesheets="@../Css/menu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vocabulary_study.Controllers.AppMenuController">
    <children>
-      <Pane layoutX="13.0" layoutY="17.0" prefHeight="682.0" prefWidth="207.0" styleClass="menu" stylesheets="@../Css/dashboard.css">
+      <Pane layoutX="13.0" layoutY="17.0" prefHeight="682.0" prefWidth="207.0" styleClass="menu" stylesheets="@../Css/menu.css">
          <children>
             <Pane layoutX="19.0" layoutY="29.0" prefHeight="36.0" prefWidth="200.0" styleClass="label_welcome">
                <children>
@@ -17,19 +17,19 @@
                   <Label layoutX="45.0" styleClass="label_welcome" text="Tam!" />
                </children>
             </Pane>
-            <Button layoutX="34.0" layoutY="135.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" styleClass="menu_button" text="Home">
+            <Button fx:id="home_btn" layoutX="34.0" layoutY="135.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" styleClass="menu_button" text="Home">
                <graphic>
                   <FontAwesomeIcon iconName="HOME" styleClass="icon" />
                </graphic></Button>
-            <Button layoutX="34.0" layoutY="215.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" styleClass="menu_button" text="Quiz">
+            <Button fx:id="quiz_btn" layoutX="34.0" layoutY="215.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" styleClass="menu_button" text="Quiz">
                <graphic>
                   <FontAwesomeIcon iconName="MORTAR_BOARD" styleClass="icon" />
                </graphic></Button>
-            <Button layoutX="34.0" layoutY="295.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" styleClass="menu_button" text="Word">
+            <Button fx:id="word_btn" layoutX="34.0" layoutY="295.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" styleClass="menu_button" text="Word">
                <graphic>
                   <FontAwesomeIcon iconName="BOOK" styleClass="icon" />
                </graphic></Button>
-            <Button layoutX="34.0" layoutY="375.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" styleClass="menu_button" text="Result">
+            <Button fx:id="result_btn" layoutX="34.0" layoutY="375.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="140.0" styleClass="menu_button" text="Result">
                <graphic>
                   <FontAwesomeIcon iconName="AREA_CHART" styleClass="icon" />
                </graphic></Button>

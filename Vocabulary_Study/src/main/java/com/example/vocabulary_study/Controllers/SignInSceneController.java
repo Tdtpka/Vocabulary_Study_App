@@ -24,8 +24,13 @@ public class SignInSceneController implements Initializable {
     }
     private void onSignIn(){
         Stage stage = (Stage) sign_in_btn.getScene().getWindow();
-        Model.getInstance().getViewFactory().showAppWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
+        String account = acc_field.getText();
+        String password = pass_field.getText();
+        Model.getInstance().checkUserAccount(account, password);
+        if(Model.getInstance().getUserLoginSuccessFlag()){
+            Model.getInstance().getViewFactory().showAppWindow();
+            Model.getInstance().getViewFactory().closeStage(stage);
+        }
 
     }
     private void onSignUp(){
