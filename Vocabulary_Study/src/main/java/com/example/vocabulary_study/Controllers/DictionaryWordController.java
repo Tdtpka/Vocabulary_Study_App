@@ -41,6 +41,7 @@ public class DictionaryWordController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         vocabularies.clear();
+        Model.getDeletedVocabularies().clear();
         UserDictionary dictionary = Model.getDictionary();
         dictionaryID = dictionary.dictionaryIDProperty().get();
         topic_label.setText(dictionary.topicProperty().get());

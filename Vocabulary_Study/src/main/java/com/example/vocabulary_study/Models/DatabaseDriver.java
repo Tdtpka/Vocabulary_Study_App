@@ -84,22 +84,20 @@ public class DatabaseDriver {
     public static void createUserDictionary(int userID, int dictionaryID, String dictionaryName, String topic, String description, ObservableList<Word> list_word) {
         PreparedStatement preparedStatement;
         try {
-            preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO Dictionary (dictionary_id, dictionary_name, topic, user_id, total_word, dic_description) VALUES (?,?,?,?,?,?)");
-            preparedStatement.setInt(1, dictionaryID);
-            preparedStatement.setString(2, dictionaryName);
-            preparedStatement.setString(3, topic);
-            preparedStatement.setInt(4, userID);
-            preparedStatement.setInt(5, list_word.size());
-            preparedStatement.setString(6, description);
+            preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO Dictionary (dictionary_name, topic, user_id, total_word, dic_description) VALUES (?,?,?,?,?)");
+            preparedStatement.setString(1, dictionaryName);
+            preparedStatement.setString(2, topic);
+            preparedStatement.setInt(3, userID);
+            preparedStatement.setInt(4, list_word.size());
+            preparedStatement.setString(5, description);
             preparedStatement.execute();
             for (int i = 0; i < list_word.size(); i++) {
-                preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO Vocabulary (vocab_id, user_id, dictionary_id, word, word_type, meaning) VALUES (?,?,?,?,?,?)");
-                preparedStatement.setInt(1, i+1);
-                preparedStatement.setInt(2, userID);
-                preparedStatement.setInt(3, dictionaryID);
-                preparedStatement.setString(4, list_word.get(i).wordProperty().get());
-                preparedStatement.setString(5, list_word.get(i).typeProperty().get());
-                preparedStatement.setString(6, list_word.get(i).meaningProperty().get());
+                preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO Vocabulary (user_id, dictionary_id, word, word_type, meaning) VALUES (?,?,?,?,?)");
+                preparedStatement.setInt(1, userID);
+                preparedStatement.setInt(2, dictionaryID);
+                preparedStatement.setString(3, list_word.get(i).wordProperty().get());
+                preparedStatement.setString(4, list_word.get(i).typeProperty().get());
+                preparedStatement.setString(5, list_word.get(i).meaningProperty().get());
                 preparedStatement.execute();
             }
         } catch (SQLException e) {
@@ -109,7 +107,12 @@ public class DatabaseDriver {
     public static void updateUserDictionary(int userID, int dictionaryID, String dictionaryName, String topic, String description, ObservableList<Vocabulary> vocabularies, int savedWord) {
         PreparedStatement preparedStatement;
         try{
-            preparedStatement = DbConnect.getConnection().prepareStatement("UPDATE Dictionary SET dictionary_name = ?, topic = ?, total_word = ?, dic_description = ? WHERE user_id = '"+userID+"' AND dictionary_id = '"+dictionaryID+"'");
+            for(int i = 0; i< Model.getDeletedVocabularies().size(); i++){
+                preparedStatement = DbConnect.getConnection().prepareStatement("DELETE FROM Vocabulary WHERE vocab_id = ?");
+                preparedStatement.setInt(1, Model.getDeletedVocabularies().get(i).vocabIDProperty().get());
+                preparedStatement.execute();
+            }
+            preparedStatement = DbConnect.getConnection().prepareStatement("UPDATE Dictionary SET dictionary_name = ?, topic = ?, total_word = ?, dic_description = ? WHERE dictionary_id = '"+dictionaryID+"'");
             preparedStatement.setString(1, dictionaryName);
             preparedStatement.setString(2, topic);
             preparedStatement.setInt(3, vocabularies.size());
@@ -117,19 +120,18 @@ public class DatabaseDriver {
             preparedStatement.execute();
             for(int i=0; i<vocabularies.size(); i++){
                 if(i<savedWord){
-                    preparedStatement = DbConnect.getConnection().prepareStatement("UPDATE Vocabulary SET word = ?, word_type = ?, meaning = ? WHERE user_id = '"+userID+"' AND dictionary_id = '"+dictionaryID+"' AND vocab_id = '"+vocabularies.get(i).vocabIDProperty().get()+"'");
+                    preparedStatement = DbConnect.getConnection().prepareStatement("UPDATE Vocabulary SET word = ?, word_type = ?, meaning = ? WHERE vocab_id = '"+vocabularies.get(i).vocabIDProperty().get()+"'");
                     preparedStatement.setString(1, vocabularies.get(i).wordProperty().get());
-                    preparedStatement.setString(2, vocabularies.get(i).wordProperty().get());
+                    preparedStatement.setString(2, vocabularies.get(i).wordTypeProperty().get());
                     preparedStatement.setString(3, vocabularies.get(i).meaningProperty().get());
                     preparedStatement.execute();
                 }else{
-                    preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO Vocabulary (vocab_id, user_id, dictionary_id, word, word_type, meaning) VALUES (?,?,?,?,?,?)");
-                    preparedStatement.setInt(1, i+1);
-                    preparedStatement.setInt(2, userID);
-                    preparedStatement.setInt(3, dictionaryID);
-                    preparedStatement.setString(4, vocabularies.get(i).wordProperty().get());
-                    preparedStatement.setString(5, vocabularies.get(i).wordTypeProperty().get());
-                    preparedStatement.setString(6, vocabularies.get(i).meaningProperty().get());
+                    preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO Vocabulary (user_id, dictionary_id, word, word_type, meaning) VALUES (?,?,?,?,?)");
+                    preparedStatement.setInt(1, userID);
+                    preparedStatement.setInt(2, dictionaryID);
+                    preparedStatement.setString(3, vocabularies.get(i).wordProperty().get());
+                    preparedStatement.setString(4, vocabularies.get(i).wordTypeProperty().get());
+                    preparedStatement.setString(5, vocabularies.get(i).meaningProperty().get());
                     preparedStatement.execute();
                 }
             }

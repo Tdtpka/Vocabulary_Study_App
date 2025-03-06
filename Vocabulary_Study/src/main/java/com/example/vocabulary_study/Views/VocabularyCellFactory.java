@@ -16,7 +16,6 @@ import javafx.scene.paint.Color;
 
 public class VocabularyCellFactory extends ListCell<Vocabulary> {
     private final ListView<Vocabulary> list_view;
-
     public VocabularyCellFactory(ListView<Vocabulary> list_view) {
         this.list_view = list_view;
     }

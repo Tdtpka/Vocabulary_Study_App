@@ -17,6 +17,7 @@ public class Model {
     private static ObservableList<DefaultVocabulary> defaultVocabularies;
     private static ObservableList<UserDictionary> userDictionaries;
     private static ObservableList<Vocabulary> vocabularies;
+    private static ObservableList<Vocabulary> deletedVocabularies;
     private static UserDictionary userDictionary;
     private boolean userLoginSuccessFlag = false;
     private static User user;
@@ -26,6 +27,7 @@ public class Model {
         user = new User(0,"","","","","","","","");
         defaultVocabularies = FXCollections.observableArrayList();
         vocabularies = FXCollections.observableArrayList();
+        deletedVocabularies = FXCollections.observableArrayList();
         userDictionaries = FXCollections.observableArrayList();
         defaultDictionaries = FXCollections.observableArrayList();
         userDictionary = new UserDictionary(0,0,"","",0,"");
@@ -197,6 +199,9 @@ public class Model {
             e.printStackTrace();
         }
         return vocabularies;
+    }
+    public static ObservableList<Vocabulary> getDeletedVocabularies(){
+        return deletedVocabularies;
     }
 
 

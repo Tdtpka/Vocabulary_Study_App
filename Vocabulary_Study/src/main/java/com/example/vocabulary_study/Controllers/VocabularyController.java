@@ -1,6 +1,9 @@
 package com.example.vocabulary_study.Controllers;
 
+import com.example.vocabulary_study.Models.Model;
 import com.example.vocabulary_study.Models.Vocabulary;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -21,13 +24,14 @@ public class VocabularyController implements Initializable {
     public VocabularyController(Vocabulary vocabulary, ListView<Vocabulary> list_view){
         this.vocabulary = vocabulary;
         this.list_view = list_view;
+
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         if (type_choicebox.getItems().isEmpty()) { // Đảm bảo chỉ thêm dữ liệu 1 lần
             type_choicebox.getItems().addAll("noun", "verb");
+            type_choicebox.setValue("noun");
         }
-        type_choicebox.setValue("noun");
         delete_word_btn.setOnAction(event->deleteWord());
         save_btn.setOnAction(event->saveWord());
         word_field.setText(vocabulary.wordProperty().get());
@@ -43,6 +47,7 @@ public class VocabularyController implements Initializable {
         list_view.getItems().set(index, vocabulary);
     }
     private void deleteWord(){
+        Model.getDeletedVocabularies().add(vocabulary);
         list_view.getSelectionModel().select(vocabulary);
         int index = list_view.getSelectionModel().getSelectedIndex();
         list_view.getItems().remove(index);
