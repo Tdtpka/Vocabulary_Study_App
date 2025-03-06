@@ -7,6 +7,8 @@ module com.example.vocabulary_study {
     requires fontawesomefx;
     requires mysql.connector.j;
 
+    exports com.example.vocabulary_study.Models;
+    opens com.example.vocabulary_study.Models to javafx.fxml;
     exports com.example.vocabulary_study.Controllers;
     opens com.example.vocabulary_study.Controllers to javafx.fxml;
     exports com.example.vocabulary_study.Views;

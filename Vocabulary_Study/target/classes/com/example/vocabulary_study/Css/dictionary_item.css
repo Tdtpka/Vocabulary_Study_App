@@ -1,7 +1,4 @@
-.root{
-    -fx-background-color: white;
-}
-.box{
+.container{
     -fx-background-radius: 20px;
     -fx-background-color: lightskyblue;
 }

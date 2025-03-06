@@ -13,7 +13,7 @@
       <AnchorPane layoutX="503.0" prefHeight="717.0" prefWidth="602.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="503.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="sign_in_btn" layoutX="259.0" layoutY="419.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="96.0" styleClass="xs_label" text="Sign In" AnchorPane.bottomAnchor="211.6" />
-            <Label layoutX="149.0" layoutY="235.0" text="Your Account:" AnchorPane.bottomAnchor="456.4">
+            <Label layoutX="149.0" layoutY="235.0" text="User Name:" AnchorPane.bottomAnchor="456.4">
                <styleClass>
                   <String fx:value="text" />
                   <String fx:value="small_label" />
@@ -51,6 +51,7 @@
             </Label>
             <Button fx:id="sign_up_btn" layoutX="488.0" layoutY="676.0" mnemonicParsing="false" text="Get Started!" AnchorPane.bottomAnchor="15.0" />
             <Label layoutX="355.0" layoutY="680.0" styleClass="text" text="Don't have an account?" AnchorPane.bottomAnchor="19.0" />
+            <Label fx:id="error_label" layoutX="149.0" layoutY="526.0" text="Your user name or password is incorrect. Try again!" textFill="WHITE" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="717.0" prefWidth="503.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="602.0" AnchorPane.topAnchor="0.0">

@@ -4,5 +4,5 @@ public enum UserMenuOptions {
     HOME,
     QUIZ,
     WORD,
-    RESULT
+    DICTIONARY, RESULT
 }

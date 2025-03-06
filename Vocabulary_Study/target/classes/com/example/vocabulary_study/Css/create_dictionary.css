@@ -1,0 +1,18 @@
+.root{
+    -fx-background-color: white;
+}
+.label{
+    -fx-font-size: 20px;
+}
+.button{
+    -fx-text-fill: white;
+    -fx-background-color: lightskyblue;
+    -fx-border-radius: 10px;
+}
+.list-view .scroll-bar:vertical,
+.list-view .scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-padding: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="682.0" prefWidth="854.0" styleClass="root" stylesheets="@../Css/dictionary.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vocabulary_study.Controllers.DictionaryWordController">
+   <children>
+      <Pane layoutX="475.0" layoutY="130.0" prefHeight="45.0" prefWidth="267.0" styleClass="search_box">
+         <children>
+            <TextField fx:id="search_word_field" layoutX="14.0" layoutY="3.0" prefHeight="40.0" prefWidth="239.0" promptText="find a word..." styleClass="root">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+         </children>
+      </Pane>
+      <FontAwesomeIcon fx:id="search_btn" fill="#00a1ff" iconName="SEARCH" layoutX="765.0" layoutY="161.0" size="2em">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </FontAwesomeIcon>
+      <AnchorPane layoutX="649.0" prefHeight="90.0" prefWidth="205.0">
+         <children>
+            <Button fx:id="logout_btn" mnemonicParsing="false" text="Logout" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="30.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="username_label" text="TDT" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0" />
+            <FontAwesomeIcon fx:id="profile_btn" fill="WHITE" iconName="USER" size="2em" styleClass="icon" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIcon>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="20.0" prefHeight="144.0" prefWidth="255.0">
+         <children>
+            <Label fx:id="dictionary_name_label" layoutX="14.0" layoutY="72.0" styleClass="text_large" text="Dictionary: Name" />
+            <Label fx:id="date_label" layoutX="14.0" layoutY="34.0" styleClass="text_small" text="20/01/2000" />
+         </children>
+      </Pane>
+      <Button fx:id="new_word_btn" layoutX="39.0" layoutY="212.0" mnemonicParsing="false" text="Add New Word">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" iconName="PLUS" size="2em" />
+         </graphic>
+      </Button>
+      <ListView fx:id="list_view" focusTraversable="false" layoutX="10.0" layoutY="260.0" prefHeight="422.0" prefWidth="845.0" stylesheets="@../Css/create_dictionary.css" />
+      <Button fx:id="save_btn" layoutX="208.0" layoutY="212.0" mnemonicParsing="false" text="Save change">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" iconName="SAVE" size="2em" />
+         </graphic>
+      </Button>
+      <Label fx:id="topic_label" layoutX="39.0" layoutY="142.0" styleClass="text_small" text="Topic" />
+   </children>
+</Pane>

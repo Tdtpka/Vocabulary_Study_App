@@ -1,17 +1,26 @@
 package com.example.vocabulary_study.Views;
 
 import com.example.vocabulary_study.Controllers.AppController;
+import com.example.vocabulary_study.Controllers.DictionaryWordController;
+import com.example.vocabulary_study.Models.Model;
+import com.example.vocabulary_study.Models.UserDictionary;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ViewFactory {
     private ObjectProperty<UserMenuOptions> userSelectedMenuItem;
     private Pane home;
     private Pane dictionary;
+    private Pane dictionaryWord;
     private Pane quiz;
     private Pane result;
 
@@ -71,6 +80,14 @@ public class ViewFactory {
         }
         return dictionary;
     }
+    public Pane getDictionaryWordView(){
+        try{
+            dictionaryWord = new FXMLLoader(getClass().getResource("/com/example/vocabulary_study/Fxml/dictionary_word.fxml")).load();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return dictionaryWord;
+    }
     public  Pane getQuizView(){
         if (quiz==null){
             try {
@@ -90,5 +107,27 @@ public class ViewFactory {
             }
         }
         return result;
+    }
+
+    public void showCreateDictionaryWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vocabulary_study/Fxml/create_dictionary.fxml"));
+        try {
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Create New Dictionary");
+            stage.setOnCloseRequest(event -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("Bạn muốn hủy tạo từ điển?");
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.CANCEL) {
+                        event.consume(); // Ngăn cửa sổ đóng lại
+                    }
+                });
+            });
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

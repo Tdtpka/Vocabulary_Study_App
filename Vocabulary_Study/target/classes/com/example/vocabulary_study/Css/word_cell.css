@@ -1,0 +1,10 @@
+.label{
+    -fx-font-size: 15px;
+}
+.root{
+    -fx-background-radius: 10px;
+    -fx-border-width: 1;
+    -fx-border-color: lightskyblue;
+    -fx-border-radius: 10px;
+    -fx-background-color: white;
+}

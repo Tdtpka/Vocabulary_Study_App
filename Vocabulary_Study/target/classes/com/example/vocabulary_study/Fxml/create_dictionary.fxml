@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="682.0" prefWidth="854.0" styleClass="root" stylesheets="@../Css/create_dictionary.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vocabulary_study.Controllers.CreateDictionaryController">
+   <children>
+      <ListView fx:id="list_view" focusTraversable="false" layoutY="195.0" prefHeight="488.0" prefWidth="854.0" stylesheets="@../Css/create_dictionary.css" />
+      <Button fx:id="add_word_btn" layoutX="735.0" layoutY="643.0" mnemonicParsing="false" text="New Word">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+         </graphic>
+      </Button>
+      <Button fx:id="create_btn" layoutX="707.0" layoutY="159.0" mnemonicParsing="false" text="Create dictionary">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" iconName="EDIT" />
+         </graphic>
+      </Button>
+      <Pane prefHeight="195.0" prefWidth="679.0">
+         <children>
+            <TextField fx:id="dictionary_name_field" layoutX="46.0" layoutY="65.0" prefHeight="25.0" prefWidth="178.0" />
+            <TextField fx:id="topic_field" layoutX="46.0" layoutY="144.0" prefHeight="25.0" prefWidth="178.0" />
+            <Label layoutX="46.0" layoutY="25.0" text="Dictionary Name:" />
+            <Label layoutX="46.0" layoutY="105.0" text="Topic:" />
+            <Label layoutX="320.0" layoutY="25.0" text="Description:" />
+            <TextArea fx:id="description_field" layoutX="320.0" layoutY="57.0" prefHeight="127.0" prefWidth="359.0" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

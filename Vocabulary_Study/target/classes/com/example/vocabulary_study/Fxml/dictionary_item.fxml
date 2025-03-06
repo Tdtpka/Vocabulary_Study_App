@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="dictionary_item" prefHeight="144.0" prefWidth="364.0" styleClass="container" stylesheets="@../Css/dictionary_item.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vocabulary_study.Controllers.DictionaryItemController">
+   <children>
+      <Label fx:id="dictionary_name" layoutX="25.0" layoutY="15.0" styleClass="title" text="New word" />
+      <Label fx:id="total_word_label" layoutX="290.0" layoutY="20.0" text="10 words" />
+      <Label fx:id="description_label" layoutX="35.0" layoutY="55.0" text="This is description..." />
+   </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</Pane>
