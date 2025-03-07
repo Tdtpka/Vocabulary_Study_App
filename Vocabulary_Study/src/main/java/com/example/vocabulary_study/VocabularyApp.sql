@@ -110,3 +110,8 @@ CREATE TABLE deleted_words (
 DESC defaultvocabulary;
 
 SELECT * FROM defaultvocabulary;
+
+ALTER TABLE DefaultVocabulary CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE Vocabulary CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE Users CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE QuizResults CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
