@@ -3,7 +3,6 @@
 }
 .field{
     -fx-padding: 10px 15px 10px 15px;
-    -fx-font-family: "Comic Sans MS";
     -fx-background-color: white;
     -fx-background-radius: 15px 20px 15px 20px;
     -fx-border-color: brown;
@@ -12,7 +11,6 @@
     -fx-border-style: segments(1, 1, 1, 1)  line-cap round ;
 }
 .text{
-    -fx-font-family: "Comic Sans MS";
     -fx-text-fill: white;
 }
 .large_label{

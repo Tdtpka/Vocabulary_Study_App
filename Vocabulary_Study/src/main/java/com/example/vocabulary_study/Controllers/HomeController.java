@@ -39,7 +39,7 @@ public class HomeController implements Initializable {
     }
     private void onLogout(){
         Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setContentText("Bạn muốn thoát phiên đăng nhập?");
+        alert.setHeaderText("Bạn muốn thoát phiên đăng nhập?");
         alert.showAndWait();
         if(alert.getResult().getButtonData().isDefaultButton()) {
             Stage stage = (Stage) logout_btn.getScene().getWindow();
@@ -50,8 +50,5 @@ public class HomeController implements Initializable {
     }
     private void onMore(){
         Model.getInstance().getViewFactory().getUserSelectedMenuItem().set(UserMenuOptions.WORD);
-    }
-    private void updateUI(){
-
     }
 }

@@ -7,8 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.net.URL;

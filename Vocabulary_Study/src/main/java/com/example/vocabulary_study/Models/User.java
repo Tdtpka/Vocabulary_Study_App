@@ -24,7 +24,7 @@ public class User {
         this.questionB = new SimpleStringProperty(this, "Question B", questionB);
         this.questionC = new SimpleStringProperty(this, "Question C", questionC);
         this.answerA = new SimpleStringProperty(this, "Answer A", answerA);
-        this. answerB = new SimpleStringProperty(this, "Answer B", answerB);
+        this.answerB = new SimpleStringProperty(this, "Answer B", answerB);
         this.answerC = new SimpleStringProperty(this, "Answer C", answerC);
     }
 

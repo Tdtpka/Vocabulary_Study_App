@@ -2,6 +2,7 @@ package com.example.vocabulary_study.Views;
 
 import com.example.vocabulary_study.Controllers.AppController;
 import com.example.vocabulary_study.Controllers.DictionaryWordController;
+import com.example.vocabulary_study.Controllers.QuizDataController;
 import com.example.vocabulary_study.Models.Model;
 import com.example.vocabulary_study.Models.UserDictionary;
 import javafx.beans.property.ObjectProperty;
@@ -118,7 +119,7 @@ public class ViewFactory {
             stage.setTitle("Create New Dictionary");
             stage.setOnCloseRequest(event -> {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setContentText("Bạn muốn hủy tạo từ điển?");
+                alert.setHeaderText("Bạn muốn hủy tạo từ điển?");
                 alert.showAndWait().ifPresent(response -> {
                     if (response == ButtonType.CANCEL) {
                         event.consume(); // Ngăn cửa sổ đóng lại
@@ -128,6 +129,29 @@ public class ViewFactory {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    public void showQuizDataWindow(UserDictionary userDictionary){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/vocabulary_study/Fxml/quiz_data.fxml"));
+        Stage stage = new Stage();
+        try {
+            QuizDataController quizDataController = new QuizDataController(userDictionary);
+            loader.setController(quizDataController);
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+            stage.setOnCloseRequest(event -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Bạn muốn thoát bài kiểm tra?");
+                alert.setContentText("Kết quả sẽ không được lưu");
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.CANCEL) {
+                        event.consume(); // Ngăn cửa sổ đóng lại
+                    }
+                });
+            });
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

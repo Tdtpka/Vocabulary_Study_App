@@ -6,17 +6,17 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane prefHeight="64.0" prefWidth="773.0" styleClass="root" stylesheets="@../Css/quiz_tile.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pane" prefHeight="64.0" prefWidth="760.0" styleClass="root" stylesheets="@../Css/dictionary_cell.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="65.0" layoutY="9.0" text="Quiz 1">
+      <Label fx:id="dictionary_name_label" layoutX="65.0" layoutY="9.0" text="Quiz 1">
          <styleClass>
             <String fx:value="title" />
             <String fx:value="text" />
          </styleClass></Label>
-      <CheckBox focusTraversable="false" layoutX="663.0" layoutY="24.0" mnemonicParsing="false" styleClass="text" text="Completed" />
+      <CheckBox fx:id="completed_checkbox" focusTraversable="false" layoutX="663.0" layoutY="24.0" mnemonicParsing="false" styleClass="text" text="Completed" />
       <Label layoutX="65.0" layoutY="36.0" styleClass="text" text="This is description..." />
       <FontAwesomeIcon fill="WHITE" iconName="QUESTION" layoutX="25.0" layoutY="41.0" size="2em" styleClass="title" wrappingWidth="13.300000190734863" />
-      <Label layoutX="590.0" layoutY="19.0" text="9/10">
+      <Label fx:id="number_correct_label" layoutX="590.0" layoutY="19.0" text="9/10">
          <styleClass>
             <String fx:value="title" />
             <String fx:value="text" />

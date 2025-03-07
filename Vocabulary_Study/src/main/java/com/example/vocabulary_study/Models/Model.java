@@ -30,7 +30,7 @@ public class Model {
         deletedVocabularies = FXCollections.observableArrayList();
         userDictionaries = FXCollections.observableArrayList();
         defaultDictionaries = FXCollections.observableArrayList();
-        userDictionary = new UserDictionary(0,0,"","",0,"");
+        userDictionary = new UserDictionary(0,0,"","",0,"", false);
     }
 
     public static synchronized Model getInstance(){
@@ -42,9 +42,6 @@ public class Model {
     public static void clearModel(){
         model = null;
     }
-
-//    public static ObservableList<UserDictionary> getVocabularies() {
-//    }
 
     //ViewFactory
     public ViewFactory getViewFactory() {
@@ -141,13 +138,14 @@ public class Model {
         ResultSet resultSet = DatabaseDriver.getUserDictionaryData(userID);
         try {
             while (resultSet.next()){
-                UserDictionary userDictionary = new UserDictionary(0,0,"","",0,"");
+                UserDictionary userDictionary = new UserDictionary(0,0,"","",0,"", false);
                 userDictionary.userIDProperty().set(resultSet.getInt("user_id"));
                 userDictionary.dictionaryIDProperty().set(resultSet.getInt("dictionary_id"));
                 userDictionary.dictionaryNameProperty().set(resultSet.getString("dictionary_name"));
                 userDictionary.topicProperty().set(resultSet.getString("topic"));
                 userDictionary.totalWordProperty().set(resultSet.getInt("total_word"));
                 userDictionary.descriptionProperty().set(resultSet.getString("dic_description"));
+                userDictionary.completedProperty().set(resultSet.getBoolean("is_completed"));
                 userDictionaries.addFirst(userDictionary);
             }
         } catch (SQLException e) {
@@ -159,13 +157,14 @@ public class Model {
         ResultSet resultSet = DatabaseDriver.searchUserDictionary(userID, dictionaryName);
         try {
             while (resultSet.next()){
-                UserDictionary userDictionary = new UserDictionary(0,0,"","",0,"");
+                UserDictionary userDictionary = new UserDictionary(0,0,"","",0,"", false);
                 userDictionary.userIDProperty().set(resultSet.getInt("user_id"));
                 userDictionary.dictionaryIDProperty().set(resultSet.getInt("dictionary_id"));
                 userDictionary.dictionaryNameProperty().set(resultSet.getString("dictionary_name"));
                 userDictionary.topicProperty().set(resultSet.getString("topic"));
                 userDictionary.totalWordProperty().set(resultSet.getInt("total_word"));
                 userDictionary.descriptionProperty().set(resultSet.getString("dic_description"));
+                userDictionary.completedProperty().set(resultSet.getBoolean("is_completed"));
                 userDictionaries.addFirst(userDictionary);
             }
         } catch (SQLException e) {
@@ -205,4 +204,23 @@ public class Model {
     }
 
 
+    public static void updateQuizResults(ObservableList<Quiz> listQuiz, int dictionaryID) {
+        DatabaseDriver.updateQuizResults(listQuiz, dictionaryID);
+    }
+
+    public static int getQuizResults(int dictionaryID){
+        ResultSet resultSet = DatabaseDriver.getQuizResult(dictionaryID);
+        int correct = 0;
+        boolean isCompleted= false;
+        try {
+            while (resultSet.next()){
+                isCompleted = true;
+                if(resultSet.getBoolean("is_correct")) correct++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(isCompleted) return correct;
+        return -1;
+    }
 }

@@ -84,12 +84,13 @@ public class DatabaseDriver {
     public static void createUserDictionary(int userID, int dictionaryID, String dictionaryName, String topic, String description, ObservableList<Word> list_word) {
         PreparedStatement preparedStatement;
         try {
-            preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO Dictionary (dictionary_name, topic, user_id, total_word, dic_description) VALUES (?,?,?,?,?)");
+            preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO Dictionary (dictionary_name, topic, user_id, total_word, dic_description, is_completed) VALUES (?,?,?,?,?,?)");
             preparedStatement.setString(1, dictionaryName);
             preparedStatement.setString(2, topic);
             preparedStatement.setInt(3, userID);
             preparedStatement.setInt(4, list_word.size());
             preparedStatement.setString(5, description);
+            preparedStatement.setBoolean(6, false);
             preparedStatement.execute();
             for (int i = 0; i < list_word.size(); i++) {
                 preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO Vocabulary (user_id, dictionary_id, word, word_type, meaning) VALUES (?,?,?,?,?)");
@@ -151,5 +152,34 @@ public class DatabaseDriver {
         return resultSet;
     }
 
+    public static void updateQuizResults(ObservableList<Quiz> listQuiz, int dictionaryID) {
+        PreparedStatement preparedStatement;
+        try {
+            for (Quiz quiz : listQuiz) {
+                preparedStatement = DbConnect.getConnection().prepareStatement("INSERT INTO QuizResults (vocab_id, dictionary_id, is_correct, user_id) VALUES (?,?,?,?)");
+                preparedStatement.setInt(1, quiz.getVocabulary().vocabIDProperty().get());
+                preparedStatement.setInt(2, dictionaryID);
+                preparedStatement.setBoolean(3, quiz.isCorrectProperty().get());
+                preparedStatement.setInt(4, Model.getUser().getUserID().get());
+                preparedStatement.execute();
+            }
+            preparedStatement = DbConnect.getConnection().prepareStatement("UPDATE Dictionary SET is_completed = ? WHERE dictionary_id = '"+dictionaryID+"'");
+            preparedStatement.setBoolean(1, true);
+            preparedStatement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static ResultSet getQuizResult(int dictionaryID){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = DbConnect.getConnection().createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM QuizResults WHERE dictionary_id = '"+dictionaryID+"'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
 }

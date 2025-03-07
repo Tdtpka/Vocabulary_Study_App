@@ -53,23 +53,12 @@
          </styleClass>
       </Label>
       <FontAwesomeIcon fx:id="go_back" fill="WHITE" iconName="ANGLE_LEFT" layoutX="51.0" layoutY="59.0" size="30" />
-      <TextField layoutX="670.0" layoutY="216.0" prefHeight="41.0" prefWidth="267.0" promptText="example@gmail.com" stylesheets="@../Css/log_in_scene.css">
+      <TextField layoutX="670.0" layoutY="316.0" prefHeight="41.0" prefWidth="267.0" stylesheets="@../Css/log_in_scene.css">
          <styleClass>
             <String fx:value="field" />
             <String fx:value="xs_label" />
          </styleClass>
       </TextField>
-      <TextField layoutX="670.0" layoutY="316.0" prefHeight="41.0" prefWidth="267.0" promptText="example@gmail.com" stylesheets="@../Css/log_in_scene.css">
-         <styleClass>
-            <String fx:value="field" />
-            <String fx:value="xs_label" />
-         </styleClass>
-      </TextField>
-      <TextField layoutX="670.0" layoutY="417.0" prefHeight="41.0" prefWidth="267.0" promptText="example@gmail.com" stylesheets="@../Css/log_in_scene.css">
-         <styleClass>
-            <String fx:value="field" />
-            <String fx:value="xs_label" />
-         </styleClass>
-      </TextField>
+      <Label layoutX="683.0" layoutY="280.0" styleClass="small_label" text="Mã lấy lại mật khẩu:" textFill="WHITE" />
    </children>
 </AnchorPane>

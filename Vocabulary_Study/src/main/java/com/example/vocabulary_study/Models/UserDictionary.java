@@ -1,9 +1,6 @@
 package com.example.vocabulary_study.Models;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class UserDictionary {
     private final IntegerProperty userID;
@@ -12,14 +9,16 @@ public class UserDictionary {
     private final StringProperty topic;
     private final IntegerProperty totalWord;
     private final StringProperty description;
+    private final BooleanProperty completed;
 
-    public UserDictionary(int userID, int dictionaryID, String dictionaryName, String topic, int totalWord, String description){
+    public UserDictionary(int userID, int dictionaryID, String dictionaryName, String topic, int totalWord, String description, boolean completed){
         this.userID = new SimpleIntegerProperty(this, "User ID", userID);
         this.dictionaryID = new SimpleIntegerProperty(this, "Dictionary ID", dictionaryID);
         this.dictionaryName = new SimpleStringProperty(this, "Dictionary Name", dictionaryName);
         this.topic = new SimpleStringProperty(this, "Topic", topic);
         this.totalWord = new SimpleIntegerProperty(this, "Total Word", totalWord);
         this.description = new SimpleStringProperty(this, "Description", description);
+        this.completed = new SimpleBooleanProperty(this, "completed", completed);
     }
 
     public IntegerProperty userIDProperty() {
@@ -43,4 +42,6 @@ public class UserDictionary {
     }
 
     public StringProperty descriptionProperty(){ return description; }
+
+    public BooleanProperty completedProperty(){ return completed; }
 }

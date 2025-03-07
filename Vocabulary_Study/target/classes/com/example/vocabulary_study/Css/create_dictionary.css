@@ -9,6 +9,9 @@
     -fx-background-color: lightskyblue;
     -fx-border-radius: 10px;
 }
+.list-view{
+    -fx-padding: 0;
+}
 .list-view .scroll-bar:vertical,
 .list-view .scroll-bar:horizontal {
     -fx-opacity: 0;
